@@ -11,5 +11,8 @@ export default {
   },
   getBaseBreedsList: function() {
     return axios.get("https://dog.ceo/api/breeds/list");
+  },
+  getUsers: function() {
+    return axios.get("https://randomuser.me/api/?results=100")
   }
 };
