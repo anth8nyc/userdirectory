@@ -1,8 +1,9 @@
-.hero {
+.jumbotron {
   height: 150px;
   /* background-size: cover; */
   /* background-position: center; */
   /* position: relative; */
+  margin-bottom: 15px;
 }
 
 /* .hero::after {
@@ -22,11 +23,11 @@
   z-index: 2;
 } */
 
-.hero h1, .hero h2 {
+.jumbotron h1, .hero h2 {
   color: white;
 }
 
-.hero h1 {
+.jumbotron h1 {
   font-size: 60px;
   padding-top: 40px;
   margin-top: 0;

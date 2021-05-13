@@ -18,7 +18,7 @@ function UserResults(props) {
 
   return (
 
-    <table className="table table-striped">
+    <table className="table table-striped rounded">
       
     <thead>
     <tr>
@@ -33,7 +33,7 @@ function UserResults(props) {
     <tbody>
       {employees.map(result => (
         
-        <tr key={result.login.username } >
+        <tr key={result.login.username  } className="rounded" >
           <td><img alt="User" src={result.picture.large} className="img-fluid rounded" /></td>
           <td>{result.name.first} {result.name.last}</td>  
           <td><a href={result.email}>{result.email}</a></td>  
