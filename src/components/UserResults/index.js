@@ -3,25 +3,26 @@ import "./style.css";
 
 function UserResults(props) {
   return (
-    <table>
+    <table className="table table-striped">
     <tr>
-      <th>username</th>
-      <th>firstname</th>
-      <th>lastname</th>
+      <th scope="col">User </th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone Number</th>
+      <th scope="col"> DOB</th>
     </tr>
     
     {props.results.map(result => (
-    
-    
     // className="list-group-item
       <tr key={result.login.username}>
-        <td>{result.login.username}</td>  
-        <td>{result.name.first}</td>  
-        <td>{result.name.last}</td>  
-        {/* <img alt="User" src={result.picture[2]} className="img-fluid" /> */}
+        <td><img alt="User" src={result.picture.large} className="img-fluid" /></td>
+        <td>{result.name.first} {result.name.last}</td>  
+        <td><a href={result.email}>{result.email}</a></td>  
+        <td>{result.phone}</td>  
+        <td>{result.dob.date}</td>  
       </tr>
-
     ))}
+
     </table>
 
   );

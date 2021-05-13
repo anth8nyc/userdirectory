@@ -22,7 +22,11 @@ class UserSearch extends Component {
   }
 
   handleInputChange = event => {
-    this.setState({ search: event.target.value });
+    event.preventDefault();
+    console.log(event.target.value)
+    
+   this.setState({results: this.state.results.filter(result => result.name.first.includes(event.target.value))})
+
   };
 
   handleFormSubmit = event => {
@@ -40,7 +44,7 @@ class UserSearch extends Component {
     return (
       <div>
         <Container style={{ minHeight: "80%" }}>
-          <h1 className="text-center">Search By Breed!</h1>
+          <h1 className="text-center">Search Users!</h1>
           <Alert
             type="danger"
             style={{ opacity: this.state.error ? 1 : 0, marginBottom: 10 }}
