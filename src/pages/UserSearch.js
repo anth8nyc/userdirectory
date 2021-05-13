@@ -3,7 +3,7 @@ import API from "../utils/API";
 import Container from "../components/Container";
 import UserSearchForm from "../components/UserSearchForm";
 import UserResults from "../components/UserResults";
-import Alert from "../components/Alert";
+// import Alert from "../components/Alert";
 
 class UserSearch extends Component {
   state = {
@@ -12,7 +12,7 @@ class UserSearch extends Component {
     error: ""
   };
 
-  // When the component mounts, get a list of all available base breeds and update this.state.breeds
+  // When the component mounts, get a list of all available users
   componentDidMount() {
     API.getUsers()
       // .then(res => console.log(res))
@@ -21,23 +21,11 @@ class UserSearch extends Component {
   }
 
   handleInputChange = event => {
-    console.log(event.target.name)
-    console.log(event.target.value)
     const name = event.target.name;
     const value = event.target.value;
     this.setState({
       [name]: value
     });
-  
-
-    // let currentRoster = 
-    
-    // this.setState({results: this.state.results.filter(result => 
-      
-    //   result.name.first.toLowerCase().includes(event.target.value.toLowerCase()) === true ||
-    //   result.name.last.toLowerCase().includes(event.target.value.toLowerCase()) === true 
-    // )})
-
   };
 
   handleFormSubmit = event => {
@@ -55,13 +43,13 @@ class UserSearch extends Component {
     return (
       <div>
         <Container style={{ minHeight: "80%" }}>
-          <h1 className="text-center">Search Users!</h1>
+          {/* <h1 className="text-center">Search Users!</h1>
           <Alert
             type="danger"
             style={{ opacity: this.state.error ? 1 : 0, marginBottom: 10 }}
           >
             {this.state.error}
-          </Alert>
+          </Alert> */}
           <UserSearchForm
             search={this.state.search}
             handleFormSubmit={this.handleFormSubmit}

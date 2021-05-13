@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
 * {
   box-sizing: border-box;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 html,
@@ -7,7 +10,7 @@ body,
 #root,
 #root > div,
 div[data-reactroot] {
-  height: 100%;
+  /* height: 100%; */
   padding: 0;
   margin: 0;
 }

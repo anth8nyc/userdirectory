@@ -17,6 +17,7 @@ function UserResults(props) {
   console.log(employees)
 
   return (
+
     <table className="table table-striped">
     <tr>
       <th scope="col">User </th>
@@ -28,8 +29,8 @@ function UserResults(props) {
     
     {employees.map(result => (
       
-      <tr key={result.login.username}>
-        <td><img alt="User" src={result.picture.large} className="img-fluid" /></td>
+      <tr key={result.login.username } >
+        <td><img alt="User" src={result.picture.large} className="img-fluid rounded" /></td>
         <td>{result.name.first} {result.name.last}</td>  
         <td><a href={result.email}>{result.email}</a></td>  
         <td>{result.phone}</td>  
