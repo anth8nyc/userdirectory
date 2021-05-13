@@ -2,6 +2,20 @@ import React from "react";
 import "./style.css";
 
 function UserResults(props) {
+
+  let searched = props.search
+  let employees = props.results;
+  
+  console.log(employees)
+  
+  employees  = employees.filter((employee) => 
+
+    employee.name.first.toLowerCase().includes(searched.toLowerCase()) === true || 
+    employee.name.last.toLowerCase().includes(searched.toLowerCase()) === true
+  );
+
+  console.log(employees)
+
   return (
     <table className="table table-striped">
     <tr>
@@ -12,8 +26,8 @@ function UserResults(props) {
       <th scope="col"> DOB</th>
     </tr>
     
-    {props.results.map(result => (
-    // className="list-group-item
+    {employees.map(result => (
+      
       <tr key={result.login.username}>
         <td><img alt="User" src={result.picture.large} className="img-fluid" /></td>
         <td>{result.name.first} {result.name.last}</td>  
@@ -29,22 +43,3 @@ function UserResults(props) {
 }
 
 export default UserResults;
-
-
-<table style="width:100%">
-  <tr>
-    <th>Firstname</th>
-    <th>Lastname</th>
-    <th>Age</th>
-  </tr>
-  <tr>
-    <td>Jill</td>
-    <td>Smith</td>
-    <td>50</td>
-  </tr>
-  <tr>
-    <td>Eve</td>
-    <td>Jackson</td>
-    <td>94</td>
-  </tr>
-</table>

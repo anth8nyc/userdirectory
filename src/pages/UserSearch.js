@@ -8,7 +8,6 @@ import Alert from "../components/Alert";
 class UserSearch extends Component {
   state = {
     search: "",
-    users: [],
     results: [],
     error: ""
   };
@@ -22,10 +21,22 @@ class UserSearch extends Component {
   }
 
   handleInputChange = event => {
-    event.preventDefault();
+    console.log(event.target.name)
     console.log(event.target.value)
+    const name = event.target.name;
+    const value = event.target.value;
+    this.setState({
+      [name]: value
+    });
+  
+
+    // let currentRoster = 
     
-   this.setState({results: this.state.results.filter(result => result.name.first.includes(event.target.value))})
+    // this.setState({results: this.state.results.filter(result => 
+      
+    //   result.name.first.toLowerCase().includes(event.target.value.toLowerCase()) === true ||
+    //   result.name.last.toLowerCase().includes(event.target.value.toLowerCase()) === true 
+    // )})
 
   };
 
@@ -52,10 +63,11 @@ class UserSearch extends Component {
             {this.state.error}
           </Alert>
           <UserSearchForm
+            search={this.state.search}
             handleFormSubmit={this.handleFormSubmit}
             handleInputChange={this.handleInputChange}
           />
-          <UserResults results={this.state.results} />
+          <UserResults search={this.state.search} results={this.state.results} />
         </Container>
       </div>
     );
