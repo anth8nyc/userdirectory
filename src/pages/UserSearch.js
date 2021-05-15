@@ -9,6 +9,7 @@ class UserSearch extends Component {
   state = {
     search: "",
     results: [],
+    sortAorD: "",
     error: ""
   };
 
@@ -39,23 +40,32 @@ class UserSearch extends Component {
       })
       .catch(err => this.setState({ error: err.message }));
   };
+
+
+  handleClick = event => {
+    event.preventDefault();
+
+    if (this.state.sortAorD === "") {
+      this.setState({ sortAorD: "Asce" })
+    } else if (this.state.sortAorD === "Asce") {
+      this.setState({ sortAorD: "Desc" })
+    } else if (this.state.sortAorD === "Desc") {
+      this.setState({ sortAorD: "" })
+    }
+
+  }
+
+
   render() {
     return (
       <div>
         <Container style={{ minHeight: "80%" }}>
-          {/* <h1 className="text-center">Search Users!</h1>
-          <Alert
-            type="danger"
-            style={{ opacity: this.state.error ? 1 : 0, marginBottom: 10 }}
-          >
-            {this.state.error}
-          </Alert> */}
           <UserSearchForm
             search={this.state.search}
             handleFormSubmit={this.handleFormSubmit}
             handleInputChange={this.handleInputChange}
           />
-          <UserResults search={this.state.search} results={this.state.results} />
+          <UserResults search={this.state.search} results={this.state.results} handleClick={this.handleClick} sortAorD={this.state.sortAorD} />
         </Container>
       </div>
     );

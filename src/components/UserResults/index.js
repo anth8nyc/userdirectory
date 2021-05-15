@@ -3,7 +3,8 @@ import "./style.css";
 
 function UserResults(props) {
 
-  let searched = props.search
+  let handleClick = props.handleClick;
+  let searched = props.search;
   let employees = props.results;
   
   console.log(employees)
@@ -14,6 +15,29 @@ function UserResults(props) {
     employee.name.last.toLowerCase().includes(searched.toLowerCase()) === true
   );
 
+  if ( props.sortAorD === "Asce") {
+    
+    console.log("Ascend")
+    employees.sort((a,b) => {
+      if(a.name.first > b.name.first) {return 1}
+      if(a.name.first < b.name.first) {return -1}
+      return 0
+    })
+    
+  } else if (props.sortAorD === "Desc") {
+    
+    console.log("Descend")
+    employees.sort((a,b) => {
+      if(a.name.first > b.name.first) {return -1}
+      if(a.name.first < b.name.first) {return 1}
+      return 0
+    })
+
+  } else {
+    
+    console.log("Default")
+  }
+
   console.log(employees)
 
   return (
@@ -23,7 +47,7 @@ function UserResults(props) {
     <thead>
     <tr>
       <th scope="col">User </th>
-      <th scope="col">Name</th>
+      <th scope="col">Name <button className="btn" onClick={handleClick}>🔃</button></th>
       <th scope="col">Email</th>
       <th scope="col">Phone Number</th>
       <th scope="col"> DOB</th>

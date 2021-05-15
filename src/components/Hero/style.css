@@ -23,7 +23,7 @@
   z-index: 2;
 } */
 
-.jumbotron h1, .hero h2 {
+.jumbotron h1, .hero h2, .jumbotron p {
   color: white;
 }
 
