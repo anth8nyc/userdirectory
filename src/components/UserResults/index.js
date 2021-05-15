@@ -6,7 +6,7 @@ function UserResults(props) {
   let handleClick = props.handleClick;
   let searched = props.search;
   let employees = props.results;
-  
+
   console.log(employees)
   
   employees  = employees.filter((employee) => 
